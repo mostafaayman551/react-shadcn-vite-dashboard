@@ -1,69 +1,32 @@
-# React + TypeScript + Vite
+## Used Tech
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- [React](https://reactjs.org/) - Front-end JavaScript library for building user interfaces.
+- [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework for styling.
+- [Recharts](https://recharts.org/en-US/) - A composable charting library built on React components.
+- [Lucide](https://lucide.dev/) - A set of beautiful, consistent, and customizable icons.
+- [Vite](https://vitejs.dev/) - A fast and lightweight development server and bundler.
+- [TypeScript](https://www.typescriptlang.org/) - A superset of JavaScript for building type-safe applications.
+- [ESLint](https://eslint.org/) - A linter for enforcing code quality and preventing errors.
 
-Currently, two official plugins are available:
+## Setup
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. Clone the repository: `git clone https://github.com/mostafaayman551/react-shadcn-vite-dashboard`
+2. Install dependencies: `npm install`
+3. Start the development server: `npm run dev`
+4. Open your web browser and navigate to `http://localhost:5173`
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+// vite.config.js
+### Change Port
+```javascript
+import { defineConfig } from "vite";
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
+export default defineConfig({
+  server: {
+    port: 3000,
   },
-])
+});
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### live Preview
+[Live Preview](https://react-shadcn-vite-dashboard.vercel.app/)
