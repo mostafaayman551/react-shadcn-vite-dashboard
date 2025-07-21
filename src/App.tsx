@@ -12,7 +12,7 @@ const App: React.FC = () => {
   // console.log(windowWidth);
 
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(
-    () => window.innerWidth >= 768
+    () => window.innerWidth <= 768
   );
   const [modalOpen, setModalOpen] = useState<boolean>(false);
 
@@ -20,7 +20,7 @@ const App: React.FC = () => {
     const handleResize = () => {
       const currentWidth = window.innerWidth;
       setWindowWidth(currentWidth);
-      setSidebarOpen(currentWidth >= 768);
+      setSidebarOpen(currentWidth <= 768);
     };
     handleResize();
     window.addEventListener("resize", handleResize);
@@ -39,7 +39,7 @@ const App: React.FC = () => {
           sidebarOpen={sidebarOpen}
         />
       </div>
-      <main className="p-4 md:p-6 flex flex-col gap-6 items-stretch">
+      <main className={`p-4 md:p-6 flex flex-col gap-6 items-stretch ${sidebarOpen ? "ml-0" : "ml-64"} transition-all duration-300 ease-in-out`}>
         <StatsBoxes />
         <Chart />
         <RecentActivityTable />
