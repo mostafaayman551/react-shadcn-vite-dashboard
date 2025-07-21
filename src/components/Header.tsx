@@ -1,28 +1,43 @@
-import { Settings, SunMoon } from "lucide-react";
+import { Menu, Settings, SunMoon } from "lucide-react";
 import { Avatar } from "./ui/avatar";
 import userAvatar from "../assets/user.avif";
 import { useEffect } from "react";
 
 interface HeaderProps {
   onSettingsClick: () => void;
+  sideBarOpen: boolean;
+  setSidebarOpen: () => void;
 }
-const Header: React.FC<HeaderProps> = ({ onSettingsClick }) => {
+const Header: React.FC<HeaderProps> = ({
+  onSettingsClick,
+  sideBarOpen,
+  setSidebarOpen,
+}) => {
   const toggleTheme = () => {
     const html = document.documentElement;
     const isDark = html.classList.toggle("dark");
     localStorage.setItem("theme", isDark ? "dark" : "light");
   };
-
   useEffect(() => {
     if (localStorage.getItem("theme") === "dark") {
       document.documentElement.classList.add("dark");
     }
   }, []);
   return (
-    <header className="flex items-center justify-between gap-4 p-4 bg-white dark:bg-gray-800 shadow-md w-full">
-      <h1 className="text-xl font-bold text-black dark:text-white">
-        Dashboard
-      </h1>
+    <header
+      className={`flex items-center justify-between gap-4 p-4 bg-white dark:bg-gray-800 shadow-md  ${
+        sideBarOpen ? "ml-0" : "ml-64"
+      } transition-all duration-300 ease-in-out`}
+    >
+      <div className="flex items-center gap-4">
+        <Menu
+          className="text-gray-700 dark:text-gray-300 cursor-pointer"
+          onClick={setSidebarOpen}
+        />
+        <h1 className="text-xl font-bold text-black dark:text-white">
+          Dashboard
+        </h1>
+      </div>
       <nav className="flex items-center gap-5">
         <Settings
           onClick={onSettingsClick}

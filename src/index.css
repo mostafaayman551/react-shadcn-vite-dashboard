@@ -113,6 +113,12 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
+    scrollbar-color: var(--primary) var(--background);
+    scroll-behavior: smooth;
+    scrollbar-width: auto;
+  }
+  .dark * {
+    scrollbar-color: var(--primary) var(--background);
   }
   body {
     @apply bg-gray-100 dark:bg-gray-900 text-foreground;
