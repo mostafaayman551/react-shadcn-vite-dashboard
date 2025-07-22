@@ -1,6 +1,5 @@
 import { ClipboardMinus, LayoutDashboard, Settings } from "lucide-react";
 import { Button } from "./ui/button";
-
 interface SidebarProps {
   onSettingsClick: () => void;
   sidebarOpen: boolean;
@@ -9,7 +8,7 @@ const Sidebar: React.FC<SidebarProps> = ({ onSettingsClick, sidebarOpen }) => {
   return (
     <aside
       className={`${
-        sidebarOpen ? "w-0 hidden" : "w-64"
+        sidebarOpen ? "hidden" : "w-48 md:w-64"
       } h-full fixed z-10 top-0 left-0 bg-white dark:bg-gray-800 shadow-md p-4 flex flex-col transition-all duration-300 ease-in-out space-y-6`}
     >
       <div className="flex justify-between items-center mb-6">

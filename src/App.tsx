@@ -26,9 +26,11 @@ const App: React.FC = () => {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, [windowWidth]);
+
   return (
-    <div className="flex flex-col min-h-screen w-full bg-gray-100 dark:bg-gray-900 text-black dark:text-white">
-      <div className="">
+    <div className={`flex flex-col min-h-screen bg-gray-100 dark:bg-gray-900 text-black dark:text-white
+    `}>
+      <div className={``}>
         <Header
           onSettingsClick={() => setModalOpen(true)}
           sideBarOpen={sidebarOpen}
@@ -36,10 +38,14 @@ const App: React.FC = () => {
         />
         <Sidebar
           onSettingsClick={() => setModalOpen(true)}
-          sidebarOpen={sidebarOpen}
+          sidebarOpen={sidebarOpen}          
         />
       </div>
-      <main className={`p-4 md:p-6 flex flex-col gap-6 items-stretch ${sidebarOpen ? "ml-0" : "ml-64"} transition-all duration-300 ease-in-out`}>
+      <main
+        className={`p-4 md:p-6 flex flex-col gap-6 items-stretch w-full ${
+          sidebarOpen ? "ml-0" : "ml-48 md:ml-64 w-[calc(100%-192px)] md:w-[calc(100%-256px)]"
+        } transition-all duration-300 ease-in-out`}
+      >
         <StatsBoxes />
         <Chart />
         <RecentActivityTable />

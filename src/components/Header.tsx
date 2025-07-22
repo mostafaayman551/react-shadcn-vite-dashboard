@@ -26,8 +26,8 @@ const Header: React.FC<HeaderProps> = ({
   return (
     <header
       className={`flex items-center justify-between gap-4 p-4 bg-white dark:bg-gray-800 shadow-md  ${
-        sideBarOpen ? "ml-0" : "ml-64"
-      } transition-all duration-300 ease-in-out`}
+        sideBarOpen ? "ml-0" : "ml-48 md:ml-64 w-[calc(100%-192px)] md:w-[calc(100%-256px)]"
+      } transition-all duration-300 ease-in-out w-full`}
     >
       <div className="flex items-center gap-4">
         <Menu
